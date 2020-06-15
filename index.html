@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Судова влада України</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <style>
+        body {
+            font-family: cursive, Times, 'Times New Roman', serif;
+        }
+
+        a {
+            color: rgb(0, 39, 78) !important;
+            text-decoration: underline !important;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .header {
+            justify-content: center;
+        }
+
+        .logo {
+            width: 25%;
+            height: 25%;
+        }
+
+        .text {
+            margin: 0;
+            font-size: 40px;
+            color: #3f51b5;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .info {
+            margin: 20px 0 0 0;
+            text-align: end;
+        }
+
+        .info p {
+            margin: 0;
+        }
+
+        .slide img {
+            width: 60%;
+        }
+
+        .nav {
+            text-align: center;
+
+        }
+
+        .item {
+            display: block;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: cadetblue;
+            font-size: medium;
+            width: 400px;
+            height: 100px;
+        }
+
+        .item a {
+            text-decoration: none !important;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="main">
+            <div id="container">
+                <div id="content" role="main">
+                    <header class="box header">
+                        <img class="logo" src="https://vnm.vn.court.gov.ua/userfiles/media/0232/images/logo.jpg" alt="logo.png">
+                        <section>
+                            <header>
+                                <p class="text">Вінницький міський суд</p>
+                                <p class="text">Вінницької області</p>
+                            </header>
+                            <section class="info">
+                                <span>21050, м. Вінниця, вул. Грушевського, 17</span>
+                                <p>email: <a href="mailto:inbox@vnm.vn.court.gov.ua">inbox@vnm.vn.court.gov.ua</a> </p>
+                                <p>довідкове бюро: <a href="tel:0432673621">(0432) 67-36-21</a></p>
+                            </section>
+                        </section>
+                    </header>
+                    <section class="box slide">
+                        <img src="https://vnm.vn.court.gov.ua/userfiles/media/0232/images/court.jpg">
+                    </section>
+                    <section class="box">
+                       
+                    </section>
+                    <section class="box footer">
+                        <section id="map"></section>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <script>
+            var map = L.map('map').setView([49.23501579310001,28.467721939086914], 19);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([49.23501579310001,28.467721939086914]).addTo(map)
+                .bindPopup('Вінницький міський суд Вінницької області')
+                .openPopup();
+        </script>
+</body>
+
+</html>
+
+<!-- <section class="nav">
+    <span class="item"><a href="http://vnm.vn.court.gov.ua/sud0232/diy_sudu/"><span
+                class="fontawesome-home">Діяльність суду</span></a></span>
+    <span class="item"><a
+            href="http://docs.google.com/forms/d/e/1FAIpQLSdV87qbJfnsc7QJw1Nqyfut67kegFu2ngjl2Ru0OV30u9ULrQ/viewform"><span
+                class="fontawesome-user">Опитування громадян</span></a>
+    </span>
+</section>
+<section class="nav">
+    <span class="item"> <a href="http://goo.gl/forms/dCllEf57lV"><span
+                class="fontawesome-upload">Електронна
+                скринька довіри</span></a></span>
+    <span class="item"> <a href="http://vnm.vn.court.gov.ua/sud0232/zaput/zap_vidovidi/"><span
+                class="fontawesome-wrench">Відповіді</span></a></span>
+</section> -->
